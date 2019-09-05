@@ -1,0 +1,14 @@
+.flex {
+  display: flex;
+  flex: 1 1 100%;
+}
+
+.header,
+.footer,
+.main {
+  @extend .flex;
+}
+
+.main {
+  height: calc(100vh - 200px);
+}

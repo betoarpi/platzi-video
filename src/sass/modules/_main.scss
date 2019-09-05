@@ -1,0 +1,15 @@
+.main {
+  justify-content: center;
+  overflow: hidden;
+  &__container {
+    display: flex;
+    flex: 1 1 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__search {
+    max-width: 100%;
+    width: 768px;
+    @include border-radius-all(1rem);
+  }
+}

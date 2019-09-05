@@ -1,0 +1,14 @@
+.header {
+  height: 100px;
+  justify-content: space-between;
+  padding: 1rem;
+  &__logo {
+    flex: 0 0 200px;
+  }
+
+  &__login {
+    ul {
+      display: none;
+    }
+  }
+}

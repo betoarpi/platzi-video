@@ -1,0 +1,74 @@
+.login {
+  display: flex;
+  flex: 0 1 100%;
+  justify-content: center;
+  padding: 2rem 0;
+  &__container {
+    color: $purple-dark;
+    flex: 0 1 500px;
+    background: $white;
+    padding: 2rem;
+    @include border-radius-all(1rem);
+    &__title {
+      text-align: center;
+    }
+    a {
+      color: $green;
+      &:hover {
+        color: $purple;
+      }
+    }
+    form {
+      fieldset {
+        width: 100%;
+      }
+      input {
+        background: rgba($purple-dark, 0.05);
+        border-color: rgba($purple-dark, 0.2);
+        color: $purple-dark;
+        margin-bottom: 1rem;
+        width: 100%;
+      }
+      .btn {
+        display: flex;
+        color: $white;
+        margin-bottom: 1rem;
+        width: 50%;
+        justify-content: center;
+      }
+    }
+    &__rememberme {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      label,
+      a {
+        display: flex;
+        flex: 0 1 auto;
+      }
+      label {
+        flex-direction: row;
+        align-items: center;
+        input[type='checkbox'] {
+          display: flex;
+          margin: 0.3rem 0.3rem 0 0.3rem;
+          padding: 0;
+          height: 1rem;
+          width: 1rem;
+        }
+      }
+    }
+    &__social {
+      padding: 1.5rem 0 1rem 0;
+      ul {
+        @extend .no-styles-list;
+        li {
+          margin-bottom: 0.3rem;
+          &:last-child {
+            margin-bottom: none;
+          }
+        }
+      }
+    }
+  }
+}

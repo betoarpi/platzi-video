@@ -4,11 +4,41 @@
   padding: 1rem;
   &__logo {
     flex: 0 0 200px;
+    display: inline-flex;
+    align-self: center;
   }
 
   &__login {
+    flex-direction: row;
+    display: flex;
+    //align-items: center;
+    cursor: pointer;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    &:hover {
+      ul {
+        display: flex;
+      }
+    }
+    &__icon {
+      display: flex;
+      font-size: 2rem;
+      margin-right: 1rem;
+    }
+    > span {
+      display: flex;
+      margin-top: 0.4rem;
+    }
     ul {
+      flex: 0 0 100%;
+      flex-direction: column;
+      align-items: flex-end;
+      @extend .no-styles-list;
       display: none;
+      padding-top: 0.5rem;
+      li {
+        margin-bottom: 0.35rem;
+      }
     }
   }
 }

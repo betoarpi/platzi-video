@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Platzi Video</title>
+    <link rel="stylesheet" href="./src/css/styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__logo">
+        <img src="./src/img/platzi-video_logo.svg" alt="Platzi Video - Logo" />
+      </div>
+
+      <div class="header__login">
+        <i class="fa fa-user-circle header__login__icon" aria-hidden="true"></i>
+        <span>Profile</span>
+        <ul>
+          <li><a href="#">link 1</a></li>
+          <li><a href="#">link 2</a></li>
+          <li><a href="#">link 3</a></li>
+        </ul>
+      </div>
+    </header>
+    <!-- /header -->
+
+    <main class="main">
+      <section class="login">
+        <div class="login__container">
+          <h2 class="login__container__title">Inicia Sesión</h2>
+          <form>
+            <fieldset>
+              <input type="email" placeholder="Correo electrónico" />
+              <input type="password" placeholder="Contraseña" />
+              <button class="btn" type="submit">Iniciar Sesión</button>
+            </fieldset>
+            <div class="login__container__rememberme">
+              <label for="rememberme">
+                Recuérdame <input name="rememberme" type="checkbox" />
+              </label>
+              <a href="#">Olvidé mi contraseña</a>
+            </div>
+          </form>
+
+          <div class="login__container__social">
+            <ul>
+              <li><a href="#">Inicia Sesión con Google</a></li>
+              <li><a href="#">Inicia Sesión con Facebook</a></li>
+            </ul>
+          </div>
+
+          <span class="login__container__registrate"
+            >No tienes cuenta? <a href="#">Regístrate</a></span
+          >
+        </div>
+      </section>
+      <!-- /search -->
+    </main>
+    <footer class="footer">
+      <a href="#">Terminos de uso</a>
+      <a href="#">Política de Privacidad</a>
+      <a href="#">Centro de Ayuda</a>
+    </footer>
+  </body>
+</html>

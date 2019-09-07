@@ -51,18 +51,18 @@
   }
   &:after {
     width: 2rem;
-    bottom: 1rem;
+    bottom: 6rem;
     top: initial;
     animation-duration: 2.5s;
   }
   &--dos {
     &::before {
       bottom: initial;
-      top: 20%;
+      top: 50%;
       animation-duration: 3s;
     }
     &::after {
-      bottom: 15%;
+      bottom: 25%;
       top: initial;
       animation-duration: 1.8s;
     }

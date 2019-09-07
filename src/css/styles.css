@@ -6139,11 +6139,11 @@ fieldset {
 }
 .matrix--dos::before {
   bottom: initial;
-  top: 20%;
+  top: 50%;
   animation-duration: 3s;
 }
 .matrix--dos::after {
-  bottom: 15%;
+  bottom: 25%;
   top: initial;
   animation-duration: 1.8s;
 }

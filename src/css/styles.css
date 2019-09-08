@@ -6046,7 +6046,7 @@ fieldset {
   display: flex;
   flex: 0 1 100%;
   justify-content: center;
-  padding: 2rem 0;
+  padding: 2rem 2rem 2rem 0;
 }
 .login__container {
   color: #20192f;

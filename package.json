@@ -1,12 +1,24 @@
 {
   "name": "PlatziVideo",
   "version": "1.0.0",
-  "description": "",
+  "description": "Projecto de Platzi Video para la Escuela de JavaScript de Platzi",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "keywords": [
+    "escuela-de-js",
+    "platzi",
+    "platzi-video"
+  ],
+  "author": "Rob Arroyo @betoarpi",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "reac": "0.0.0",
+    "react-dom": "^16.9.0"
+  }
 }

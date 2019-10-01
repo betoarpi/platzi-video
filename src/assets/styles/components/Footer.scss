@@ -1,0 +1,19 @@
+@import '../App.scss';
+
+.footer {
+  display: flex;
+  height: 100px;
+  flex: 0 1 100%;
+  padding: 0 2rem;
+  color: $white;
+  a {
+    margin-right: 1rem;
+  }
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    font-size: 0.85rem;
+    a {
+      margin-bottom: 0.5rem;
+    }
+  }
+}

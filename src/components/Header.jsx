@@ -1,9 +1,12 @@
 import React from 'react';
+import '../assets/styles/components/Header.scss';
+
+import logo from '../assets/static/platzi-video_logo.svg';
 
 const Header = () => (
   <header className='header'>
     <div className='header__logo'>
-      <img src='./src/img/platzi-video_logo.svg' alt='Platzi Video - Logo' />
+      <img src={logo} alt='Platzi Video - Logo' />
     </div>
 
     <div className='header__login'>

@@ -1,16 +1,15 @@
 import React from 'react';
-import ConcertImg from '../assets/static/concert.jpg';
 
-const CarouselItem = () => (
+const CarouselItem = ({ cover, title, year, contentRating, duration }) => (
   <div className='carousel__item'>
-    <img src={ConcertImg} alt='Concert' />
+    <img src={cover} alt={title} />
     <div className='carousel__item__details'>
       <div className='carousel__item__details__icons'>
         <i className='fa fa-play' aria-hidden='true'> </i>
         <i className='fa fa-plus' aria-hidden='true'> </i>
       </div>
-      <h5>Título descriptivo</h5>
-      <p>subtítulo del item</p>
+      <h5>{title}</h5>
+      <p>{`${year} ${contentRating} ${duration}`}</p>
     </div>
   </div>
 );

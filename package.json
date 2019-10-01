@@ -26,6 +26,7 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
+    "font-awesome": "^4.7.0",
     "reac": "0.0.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"

@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Header from '../components/Header';
 import Main from '../components/Main';
 import Search from '../components/Search';
@@ -7,41 +7,37 @@ import Carousel from '../components/Carousel';
 import CarouselContainer from '../components/CarouselContainer';
 import CarouselItem from '../components/CarouselItem';
 import Footer from '../components/Footer';
+import useInitialState from '../hooks/useInitialState';
 import '../assets/styles/App.scss';
 
+const API = 'http://localhost:3000/initalState/';
+
 const App = () => {
-  const [videos, setVideos] = useState({ mylist: [], trends: [], originals: [] });
-
-  useEffect(() => {
-    fetch('http://localhost:3000/initalState')
-      .then((response) => response.json())
-      .then((data) => setVideos(data));
-  }, []);
-
-  return (
+  const initialState = useInitialState(API);
+  return initialState.length === 0 ? <h1>Loading...</h1> : (
     <div className='App'>
       <Header />
       <Main>
         <Search />
 
-        {videos.mylist.length > 0 &&
+        {initialState.mylist.length > 0 &&
           (
             <Carousel title='Mi Lista'>
               <CarouselContainer>
-                <CarouselItem />
+                {initialState.mylist.map((item) => <CarouselItem key={item.id} {...item} />)}
               </CarouselContainer>
             </Carousel>
           )}
 
         <Carousel title='Tendencias'>
           <CarouselContainer>
-            {videos.trends.map((item) => <CarouselItem key={item.id} {...item} />)}
+            {initialState.trends.map((item) => <CarouselItem key={item.id} {...item} />)}
           </CarouselContainer>
         </Carousel>
 
         <Carousel title='Originales de Platzi Video'>
           <CarouselContainer>
-            {videos.originals.map((item) => <CarouselItem key={item.id} {...item} />)}
+            {initialState.originals.map((item) => <CarouselItem key={item.id} {...item} />)}
           </CarouselContainer>
         </Carousel>
       </Main>

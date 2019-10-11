@@ -70,6 +70,9 @@
           margin-right: 0.25rem;
           position: relative;
           width: 32px;
+          &.fa-trash {
+            background: $red;
+          }
           &:last-child {
             margin-right: 0;
           }

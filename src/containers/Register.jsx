@@ -1,22 +1,55 @@
 /* eslint-disable react/jsx-one-expression-per-line */
-import React from 'react';
-import Header from '../components/Header';
-import Main from '../components/Main';
-import Footer from '../components/Footer';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { registerRequest } from '../actions';
 import '../assets/styles/components/Login.scss';
 
-const Register = () => (
-  <div className='App'>
-    <Header />
-    <Main>
+const Register = (props) => {
+  const [form, setValues] = useState({
+    email: '',
+    name: '',
+    password: '',
+  });
+
+  const handleInput = (event) => {
+    setValues({
+      ...form,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    props.registerRequest(form);
+    props.history.push('/');
+  };
+
+  return (
+    <>
       <section className='login'>
         <div className='login__container'>
           <h2 className='login__container__title'>Registro</h2>
-          <form>
+          <form onSubmit={handleSubmit}>
             <fieldset>
-              <input type='text' placeholder='Nombre' />
-              <input type='email' placeholder='Correo electrónico' />
-              <input type='password' placeholder='Contraseña' />
+              <input
+                name='name'
+                type='text'
+                placeholder='Nombre'
+                onChange={handleInput}
+              />
+              <input
+                name='email'
+                type='email'
+                placeholder='Correo electrónico'
+                onChange={handleInput}
+              />
+              <input
+                name='password'
+                type='password'
+                placeholder='Contraseña'
+                onChange={handleInput}
+              />
               <button className='btn' type='submit'>Registrarme</button>
             </fieldset>
           </form>
@@ -32,12 +65,17 @@ const Register = () => (
             </ul>
           </div>
 
-          <span className='login__container__registrate'>Ya tengo una cuenta. <a href='/'>Iniciar Sesión</a></span>
+          <span className='login__container__registrate'>
+            Ya tengo una cuenta. <Link to='/login'>Iniciar Sesión</Link>
+          </span>
         </div>
       </section>
-    </Main>
-    <Footer />
-  </div>
-);
+    </>
+  );
+};
 
-export default Register;
+const mapDispatchToProps = {
+  registerRequest,
+};
+
+export default connect(null, mapDispatchToProps)(Register);

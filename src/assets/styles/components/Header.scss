@@ -35,6 +35,14 @@
       font-size: 1.5rem;
       margin-right: 1rem;
     }
+    &__gravatar {
+      display: flex;
+      height: 27px;
+      margin-right: 1rem;
+      width: 27px;
+      @include border-radius-all(100%);
+      object-fit: cover;
+    }
     > span {
       display: flex;
     }

@@ -1,49 +1,48 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import Header from '../components/Header';
-import Main from '../components/Main';
+import { connect } from 'react-redux';
 import Search from '../components/Search';
 import Carousel from '../components/Carousel';
 import CarouselContainer from '../components/CarouselContainer';
 import CarouselItem from '../components/CarouselItem';
-import Footer from '../components/Footer';
-import useInitialState from '../hooks/useInitialState';
 import '../assets/styles/App.scss';
 
-const API = 'http://localhost:3000/initalState/';
+const Home = ({ myList, trends, originals }) => {
 
-const Home = () => {
-  const initialState = useInitialState(API);
-  return initialState.length === 0 ? <h1>Loading...</h1> : (
-    <div className='App'>
-      <Header />
-      <Main>
-        <Search />
+  return (
+    <>
+      <Search isHome />
 
-        {initialState.mylist.length > 0 &&
-          (
-            <Carousel title='Mi Lista'>
-              <CarouselContainer>
-                {initialState.mylist.map((item) => <CarouselItem key={item.id} {...item} />)}
-              </CarouselContainer>
-            </Carousel>
-          )}
+      {myList.length > 0 &&
+        (
+          <Carousel title='Mi Lista'>
+            <CarouselContainer>
+              {myList.map((item) => <CarouselItem key={item.id} {...item} isList />)}
+            </CarouselContainer>
+          </Carousel>
+        )}
 
-        <Carousel title='Tendencias'>
-          <CarouselContainer>
-            {initialState.trends.map((item) => <CarouselItem key={item.id} {...item} />)}
-          </CarouselContainer>
-        </Carousel>
+      <Carousel title='Tendencias'>
+        <CarouselContainer>
+          {trends.map((item) => <CarouselItem key={item.id} {...item} />)}
+        </CarouselContainer>
+      </Carousel>
 
-        <Carousel title='Originales de Platzi Video'>
-          <CarouselContainer>
-            {initialState.originals.map((item) => <CarouselItem key={item.id} {...item} />)}
-          </CarouselContainer>
-        </Carousel>
-      </Main>
-      <Footer />
-    </div>
+      <Carousel title='Originales de Platzi Video'>
+        <CarouselContainer>
+          {originals.map((item) => <CarouselItem key={item.id} {...item} />)}
+        </CarouselContainer>
+      </Carousel>
+    </>
   );
 };
 
-export default Home;
+const mapStateToProps = (state) => {
+  return {
+    myList: state.myList,
+    trends: state.trends,
+    originals: state.originals,
+  };
+};
+
+export default connect(mapStateToProps, null)(Home);

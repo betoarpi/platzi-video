@@ -1,28 +1,51 @@
 /* eslint-disable react/jsx-one-expression-per-line */
-import React from 'react';
-import Header from '../components/Header';
-import Main from '../components/Main';
-import Footer from '../components/Footer';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { loginRequest } from '../actions';
 import '../assets/styles/components/Login.scss';
 
-const Login = () => (
-  <div className='App'>
-    <Header />
-    <Main>
+const Login = (props) => {
+  const [form, setValues] = useState({
+    email: '',
+  });
+
+  const handleInput = (event) => {
+    setValues({
+      ...form,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    props.loginRequest(form);
+    props.history.push('/');
+  };
+
+  return (
+    <>
       <section className='login'>
         <div className='login__container'>
           <h2 className='login__container__title'>Inicia Sesión</h2>
-          <form>
+          <form onSubmit={handleSubmit}>
             <fieldset>
-              <input type='email' placeholder='Correo electrónico' />
-              <input type='password' placeholder='Contraseña' />
+              <input
+                name='email'
+                type='email'
+                placeholder='Correo electrónico'
+                onChange={handleInput}
+              />
+              <input
+                name='password'
+                type='password'
+                placeholder='Contraseña'
+                onChange={handleInput}
+              />
               <button className='btn' type='submit'>Iniciar Sesión</button>
             </fieldset>
             <div className='login__container__rememberme'>
-              <label htmlFor='rememberme'>
-                Recuérdame
-                <input name='rememberme' type='checkbox' />
-              </label>
+              <label htmlFor='rememberme'>Recuérdame <input name='rememberme' type='checkbox' /></label>
               <a href='/'>Olvidé mi contraseña</a>
             </div>
           </form>
@@ -38,12 +61,17 @@ const Login = () => (
             </ul>
           </div>
 
-          <span className='login__container__registrate'>No tienes cuenta? <a href='/'>Regístrate</a></span>
+          <span className='login__container__registrate'>
+            No tienes cuenta? <Link to='/register'>Regístrate</Link>
+          </span>
         </div>
       </section>
-    </Main>
-    <Footer />
-  </div>
-);
+    </>
+  );
+};
 
-export default Login;
+const mapDispatchToProps = {
+  loginRequest,
+};
+
+export default connect(null, mapDispatchToProps)(Login);

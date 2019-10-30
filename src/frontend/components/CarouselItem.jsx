@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { FaTrashAlt, FaPlus, FaPlay } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import { setFavorite, deleteFavorite } from '../actions';
 
@@ -21,11 +22,11 @@ const CarouselItem = (props) => {
       <div className='carousel__item__details'>
         <div className='carousel__item__details__icons'>
           <Link to={`/player/${id}`}>
-            <i className='fa fa-play' aria-hidden='true'> </i>
+            <FaPlay />
           </Link>
           {isList ?
-            <i className='fa fa-trash' aria-hidden='true' onClick={() => handleDeleteFavorite(id)}> </i> :
-            <i className='fa fa-plus' aria-hidden='true' onClick={handleSetFavorite}> </i>}
+            <FaTrashAlt onClick={() => handleDeleteFavorite(id)} /> :
+            <FaPlus onClick={handleSetFavorite} />}
         </div>
         <h5>{title}</h5>
         <p>{`${year} ${contentRating} ${duration}`}</p>

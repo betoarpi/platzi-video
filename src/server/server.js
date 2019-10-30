@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import webpack from 'webpack';
+import main from './routes/main';
 
 dotenv.config();
 
@@ -27,24 +28,7 @@ if (ENV === 'development') {
   app.unsubscribe(webpackHotMiddleware(compiler));
 }
 
-app.get('*', (req, res) => {
-  res.send(
-    `
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <title>Platzi Video</title>
-      <link rel="stylesheet" href="assets/app.css" type="text/css"></link>
-    </head>
-    <body>
-      <div id="app"></div>
-      <script src="assets/app.js" type="text/javascript"></script>
-      <script src="assets/vendor.js" type="text/javascript"></script>
-    </body>
-    </html>
-    `,
-  );
-});
+app.get('*', main);
 
 app.listen(PORT, (err) => {
   if (err) console.log(err);

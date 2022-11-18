@@ -19,7 +19,7 @@
   "homepage": "https://github.com/betoarpi/platzi-video#readme",
   "devDependencies": {
     "@babel/core": "^7.5.5",
-    "@storybook/html": "^5.1.11",
+    "@storybook/html": "^6.5.13",
     "babel-loader": "^8.0.6",
     "eslint": "^6.3.0",
     "eslint-config-airbnb": "^18.0.1",
